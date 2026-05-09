@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrarySystem.Shared", "Lib
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrarySystem.Backend", "LibrarySystem.Backend\LibrarySystem.Backend.csproj", "{B1DE0DCC-1741-4BB3-934A-6D9280704F84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrarySystem.Frontend", "LibrarySystem.Frontend\LibrarySystem.Frontend.csproj", "{ED0BBBA9-AD80-42EE-B85D-33790FD58CE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B1DE0DCC-1741-4BB3-934A-6D9280704F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1DE0DCC-1741-4BB3-934A-6D9280704F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1DE0DCC-1741-4BB3-934A-6D9280704F84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED0BBBA9-AD80-42EE-B85D-33790FD58CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED0BBBA9-AD80-42EE-B85D-33790FD58CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED0BBBA9-AD80-42EE-B85D-33790FD58CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED0BBBA9-AD80-42EE-B85D-33790FD58CE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
