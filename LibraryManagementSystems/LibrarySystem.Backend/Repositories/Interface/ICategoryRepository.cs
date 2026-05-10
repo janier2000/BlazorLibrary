@@ -5,6 +5,6 @@ namespace LibrarySystem.Backend.Repositories.Interface
 {
     public interface ICategoryRepository
     {
-        Task<List<Category>> GetList();
+        Task<List<Category>> GetListAsync();
     }
 }

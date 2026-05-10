@@ -19,8 +19,8 @@ namespace LibrarySystem.Backend.Controllers
         }
 
         [HttpGet]
-        [Route("Lista")]
-        public async Task<IActionResult> Lista()
+        [Route("GetList")]
+        public async Task<IActionResult> GetList()
         {
             //ResponseDTO<List<CategoryDTO>> _ResponseDTO = new ResponseDTO<List<CategoryDTO>>();
 
@@ -28,7 +28,7 @@ namespace LibrarySystem.Backend.Controllers
 
             try
             {
-                var categorias = await _categoryRepository.GetList();
+                var categorias = await _categoryRepository.GetListAsync();
                 //List<CategoryDTO> listaCategorias = _mapper.Map<List<CategoryDTO>>(categorias);
 
                 //List<CategoryDTO> listaCategorias = _mapper.Map<List<CategoryDTO>>(categorias);

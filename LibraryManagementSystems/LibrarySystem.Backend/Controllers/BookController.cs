@@ -17,119 +17,6 @@ namespace LibrarySystem.Backend.Controllers
             _bookRepository = bookRepository;
         }
 
-        [HttpGet]
-        [Route("GetFullList")]
-        public async Task<IActionResult> GetFullList()
-        {
-            ResponseDTO<List<Book>> _ResponseDTO = new ResponseDTO<List<Book>>();
-
-            try
-            {
-                IQueryable<Book> query = await _bookRepository.CheckAsync();
-                query = query.Include(r => r.Category);
-                List<Book> listaLibro = query.ToList();
-                _ResponseDTO = new ResponseDTO<List<Book>>() { status = true,
-                    msg = "ok",
-                    value = listaLibro 
-                };
-                return StatusCode(StatusCodes.Status200OK, _ResponseDTO);
-            }
-            catch (Exception ex)
-            {
-                _ResponseDTO = new ResponseDTO<List<Book>>()
-                {
-                    status = false,
-                    msg = ex.Message,
-                    value = null
-                };
-                return StatusCode(StatusCodes.Status500InternalServerError, _ResponseDTO);
-            }
-        }
-
-        [HttpGet]
-        [Route("Get/{Id}")]
-        public async Task<IActionResult> GetAsync(int Id)
-        {
-            ResponseDTO<Book> _ResponseDTO = new ResponseDTO<Book>();
-
-            try
-            {
-                Book BookENT = await _bookRepository.GetAsync(l => l.Id == Id);
-                if (BookENT != null)
-                {
-                    _ResponseDTO = new ResponseDTO<Book>()
-                    {
-                        status = true,
-                        msg = "ok",
-                        value = BookENT
-                    };
-                }
-                else
-                {
-                    _ResponseDTO = new ResponseDTO<Book>()
-                    {
-                        status = false,
-                        msg = "",
-                        value = null
-                    };
-                }
-                return StatusCode(StatusCodes.Status200OK, _ResponseDTO);
-            }
-            catch (Exception ex)
-            {
-                _ResponseDTO = new ResponseDTO<Book>()
-                {
-                    status = false,
-                    msg = ex.Message,
-                    value = null
-                };
-                return StatusCode(StatusCodes.Status500InternalServerError, _ResponseDTO);
-            }
-        }
-
-        [HttpGet]
-        [Route("Check")]
-        public async Task<IActionResult> CheckAsync(string value)
-        {
-            ResponseDTO<List<Book>> _ResponseDTO = new ResponseDTO<List<Book>>();
-
-            try
-            {
-                List<Book> lstBook = new List<Book>();
-                IQueryable<Book> query = await _bookRepository.CheckAsync
-                                        (l => l.Title!.ToLower().Contains(value.ToLower()));
-
-                query = query.Include(r => r.Category);
-                if (lstBook.Count > 0)
-                {
-                    _ResponseDTO = new ResponseDTO<List<Book>>() {
-                        status = true,
-                        msg = "ok",
-                        value = lstBook
-                    };
-                }
-                else
-                {
-                    _ResponseDTO = new ResponseDTO<List<Book>>()
-                    {
-                        status = false,
-                        msg = "",
-                        value = null
-                    };
-                }
-                return StatusCode(StatusCodes.Status200OK, _ResponseDTO);
-            }
-            catch (Exception ex)
-            {
-                _ResponseDTO = new ResponseDTO<List<Book>>() { 
-                    status = false,
-                    msg = ex.Message,
-                    value = null
-                };
-                return StatusCode(StatusCodes.Status500InternalServerError, _ResponseDTO);
-            }
-        }
-
         [HttpPost]
         [Route("Create")]
         public async Task<IActionResult> CreateAsync([FromBody] Book bookENT)
@@ -137,7 +24,7 @@ namespace LibrarySystem.Backend.Controllers
             ResponseDTO<Book> _ResponseDTO = new ResponseDTO<Book>();
             try
             {
-               
+
                 Book bookCreated = await _bookRepository.CreateAsync(bookENT);
                 if (bookCreated.Id != 0)
                 {
@@ -266,5 +153,120 @@ namespace LibrarySystem.Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, _ResponseDTO);
             }
         }
+
+        [HttpGet]
+        [Route("GetFullList")]
+        public async Task<IActionResult> GetFullList()
+        {
+            ResponseDTO<List<Book>> _ResponseDTO = new ResponseDTO<List<Book>>();
+
+            try
+            {
+                IQueryable<Book> query = await _bookRepository.CheckAsync();
+                query = query.Include(r => r.Category);
+                List<Book> listaLibro = query.ToList();
+                _ResponseDTO = new ResponseDTO<List<Book>>() { status = true,
+                    msg = "ok",
+                    value = listaLibro 
+                };
+                return StatusCode(StatusCodes.Status200OK, _ResponseDTO);
+            }
+            catch (Exception ex)
+            {
+                _ResponseDTO = new ResponseDTO<List<Book>>()
+                {
+                    status = false,
+                    msg = ex.Message,
+                    value = null
+                };
+                return StatusCode(StatusCodes.Status500InternalServerError, _ResponseDTO);
+            }
+        }
+
+        [HttpGet]
+        [Route("Get/{Id}")]
+        public async Task<IActionResult> GetAsync(int Id)
+        {
+            ResponseDTO<Book> _ResponseDTO = new ResponseDTO<Book>();
+
+            try
+            {
+                Book BookENT = await _bookRepository.GetAsync(l => l.Id == Id);
+                if (BookENT != null)
+                {
+                    _ResponseDTO = new ResponseDTO<Book>()
+                    {
+                        status = true,
+                        msg = "ok",
+                        value = BookENT
+                    };
+                }
+                else
+                {
+                    _ResponseDTO = new ResponseDTO<Book>()
+                    {
+                        status = false,
+                        msg = "",
+                        value = null
+                    };
+                }
+                return StatusCode(StatusCodes.Status200OK, _ResponseDTO);
+            }
+            catch (Exception ex)
+            {
+                _ResponseDTO = new ResponseDTO<Book>()
+                {
+                    status = false,
+                    msg = ex.Message,
+                    value = null
+                };
+                return StatusCode(StatusCodes.Status500InternalServerError, _ResponseDTO);
+            }
+        }
+
+        [HttpGet]
+        [Route("Check")]
+        public async Task<IActionResult> CheckAsync(string value)
+        {
+            ResponseDTO<List<Book>> _ResponseDTO = new ResponseDTO<List<Book>>();
+
+            try
+            {
+                List<Book> lstBook = new List<Book>();
+                IQueryable<Book> query = await _bookRepository.CheckAsync
+                                        (l => l.Title!.ToLower().Contains(value.ToLower()));
+
+                query = query.Include(r => r.Category);
+                if (lstBook.Count > 0)
+                {
+                    _ResponseDTO = new ResponseDTO<List<Book>>() {
+                        status = true,
+                        msg = "ok",
+                        value = lstBook
+                    };
+                }
+                else
+                {
+                    _ResponseDTO = new ResponseDTO<List<Book>>()
+                    {
+                        status = false,
+                        msg = "",
+                        value = null
+                    };
+                }
+                return StatusCode(StatusCodes.Status200OK, _ResponseDTO);
+            }
+            catch (Exception ex)
+            {
+                _ResponseDTO = new ResponseDTO<List<Book>>() { 
+                    status = false,
+                    msg = ex.Message,
+                    value = null
+                };
+                return StatusCode(StatusCodes.Status500InternalServerError, _ResponseDTO);
+            }
+        }
+
+     
     }
 }

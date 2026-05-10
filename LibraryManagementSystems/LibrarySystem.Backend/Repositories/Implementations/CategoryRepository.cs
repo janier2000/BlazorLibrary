@@ -12,7 +12,7 @@ namespace LibrarySystem.Backend.Repositories.Implementations
         {
             _context = context;
         }
-        public async Task<List<Category>> GetList()
+        public async Task<List<Category>> GetListAsync()
         {
             try
             {
