@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrarySystem.Backend", "Li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrarySystem.Frontend", "LibrarySystem.Frontend\LibrarySystem.Frontend.csproj", "{ED0BBBA9-AD80-42EE-B85D-33790FD58CE3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudBlazorPractice", "MudBlazorPractice\MudBlazorPractice.csproj", "{0A04E628-044D-4B94-94A5-6B7D9F33D38A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{ED0BBBA9-AD80-42EE-B85D-33790FD58CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED0BBBA9-AD80-42EE-B85D-33790FD58CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED0BBBA9-AD80-42EE-B85D-33790FD58CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A04E628-044D-4B94-94A5-6B7D9F33D38A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A04E628-044D-4B94-94A5-6B7D9F33D38A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A04E628-044D-4B94-94A5-6B7D9F33D38A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A04E628-044D-4B94-94A5-6B7D9F33D38A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
